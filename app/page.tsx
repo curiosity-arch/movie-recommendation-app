@@ -19,6 +19,7 @@ export default function Page() {
             </div>
             <div className={styles.footer}>
                 <p>Sistem Rekomendasi Film &copy; 2025 - Fahril Ilham Pangestu</p>
+                <p>Hallo semua</p>
             </div>
         </main>
     );
