@@ -1,0 +1,26 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/global.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+body {
+    background-image: url(/_next/static/media/sea.ea3ab408.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    height: 100%;
+    margin: 0;
+}
+
+p, h2, label, input, button, option {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 10px;
+}
+

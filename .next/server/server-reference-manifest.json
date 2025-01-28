@@ -1,0 +1,50 @@
+{
+  "node": {
+    "4067c433380bd9347dc216123c3dc3b7a287e46235": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%224067c433380bd9347dc216123c3dc3b7a287e46235%22%2C%22deleteData%22%5D%2C%5B%224068cb23a49811cddf701fdab90299fd538aa14712%22%2C%22loginUser%22%5D%2C%5B%22407fed11f4ee6153fd2e8a83651e3df5ffdf1e4047%22%2C%22updateData%22%5D%2C%5B%2240bf1a4de65952ada94f1435f44dceef421e451a57%22%2C%22createData%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "4068cb23a49811cddf701fdab90299fd538aa14712": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%224067c433380bd9347dc216123c3dc3b7a287e46235%22%2C%22deleteData%22%5D%2C%5B%224068cb23a49811cddf701fdab90299fd538aa14712%22%2C%22loginUser%22%5D%2C%5B%22407fed11f4ee6153fd2e8a83651e3df5ffdf1e4047%22%2C%22updateData%22%5D%2C%5B%2240bf1a4de65952ada94f1435f44dceef421e451a57%22%2C%22createData%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "407fed11f4ee6153fd2e8a83651e3df5ffdf1e4047": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%224067c433380bd9347dc216123c3dc3b7a287e46235%22%2C%22deleteData%22%5D%2C%5B%224068cb23a49811cddf701fdab90299fd538aa14712%22%2C%22loginUser%22%5D%2C%5B%22407fed11f4ee6153fd2e8a83651e3df5ffdf1e4047%22%2C%22updateData%22%5D%2C%5B%2240bf1a4de65952ada94f1435f44dceef421e451a57%22%2C%22createData%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "40bf1a4de65952ada94f1435f44dceef421e451a57": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%224067c433380bd9347dc216123c3dc3b7a287e46235%22%2C%22deleteData%22%5D%2C%5B%224068cb23a49811cddf701fdab90299fd538aa14712%22%2C%22loginUser%22%5D%2C%5B%22407fed11f4ee6153fd2e8a83651e3df5ffdf1e4047%22%2C%22updateData%22%5D%2C%5B%2240bf1a4de65952ada94f1435f44dceef421e451a57%22%2C%22createData%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "+m8RSicoR0slxqoHLNukGkAVN1oj8oZ1H9qYtuX1y8I="
+}
