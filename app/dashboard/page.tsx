@@ -1,15 +1,9 @@
 import styles from "@/public/styles/dashboard-styles.module.css"
-import SideNav from "@/app/ui/side-nav"
 
-export default async function Page() {
+export default async function DashboardPage() {
     return (
         <div className={styles.dashboard}>
-            <div className={styles.sidenav}>
-                <SideNav />
-            </div>
-            <div className={styles.content}>
-                <p>This is for content</p>
-            </div>
+            <p>This is for content</p>
         </div>
     )
 }
