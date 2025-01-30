@@ -1,4 +1,4 @@
-import Nav from "@/app/ui/on-Top-Bar"
+import TopNav from "@/app/ui/on-top-nav"
 import styles from "@/public/styles/layoutHome.module.css"
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {
@@ -6,7 +6,7 @@ export default function RootLayout({children,}: {children: React.ReactNode}) {
       <html lang="en">
         <body>
           <div className={styles.layoutHome}>
-            <div><Nav /></div>
+            <div className={styles.nav}><TopNav /></div>
             <main>
             {children}  
             </main>

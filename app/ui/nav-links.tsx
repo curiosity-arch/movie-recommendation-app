@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import styles from '@/public/styles/side-nav.module.css';
+import styles_navtop from '@/public/styles/on-top-nav.module.css';
 
 const SideBar = () => {
     const menuItems = [
@@ -40,6 +41,7 @@ const OnTopBar = () => {
                 <Link
                     key={item.path}
                     href={item.path}
+                    className={styles_navtop.item}
                 >
                     {item.name}
                 </Link>
