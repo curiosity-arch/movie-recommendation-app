@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation"
 
 export async function createData() {
-
+    redirect('/home')
 }
 
 export async function updateData() {

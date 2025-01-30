@@ -1,5 +1,5 @@
 import SideNav from "@/app/ui/side-nav";
-import styles from "@/public/styles/LayoutDashboard.module.css"
+import styles from "@/public/styles/layoutDashboard.module.css"
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {
     return (

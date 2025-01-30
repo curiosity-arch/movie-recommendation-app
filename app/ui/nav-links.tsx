@@ -1,12 +1,9 @@
 'use client'
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import styles from '@/public/styles/side-nav.module.css';
 
 const SideBar = () => {
-    const pathname = usePathname();
-    
     const menuItems = [
         { name: 'Home', path: '/dashboard'},
         { name: 'Film', path: '/dashboard/film'},
@@ -30,4 +27,26 @@ const SideBar = () => {
     );
 };
 
-export default SideBar;
+const OnTopBar = () => {
+    const menuItems = [
+        { name: 'Home', path: '/home'},
+        { name: 'Film', path: '/home/film'},
+        { name: 'Logout', path: '/home/logout'},
+    ];
+
+    return (
+        <>
+            {menuItems.map((item) => (
+                <Link
+                    key={item.path}
+                    href={item.path}
+                >
+                    {item.name}
+                </Link>
+            ))}
+        </>
+    );
+
+};
+
+export { SideBar, OnTopBar };

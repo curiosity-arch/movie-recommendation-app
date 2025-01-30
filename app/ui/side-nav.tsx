@@ -1,5 +1,5 @@
 import styles from '@/public/styles/side-nav.module.css';
-import SideBar from './nav-links';
+import { SideBar } from './nav-links';
 
 export default function SideNav() {
     return (
