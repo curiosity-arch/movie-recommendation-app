@@ -30,8 +30,8 @@ const SideBar = () => {
 
 const OnTopBar = () => {
     const menuItems = [
-        { name: 'Home', path: '/home'},
-        { name: 'Film', path: '/home/film'},
+        { name: 'Home', path: '#home'},
+        { name: 'Film', path: '#film'},
         { name: 'Logout', path: '/home/logout'},
     ];
 

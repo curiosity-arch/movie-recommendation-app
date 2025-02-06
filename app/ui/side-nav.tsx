@@ -6,7 +6,7 @@ export default function SideNav() {
         <div className={styles.sidenav}>
             <header className={styles.header}>
                 <p>Selamat Datang di Halaman Admin !</p>
-                <p>Admin 1</p>
+                <p>...</p>
             </header>
             <nav className={styles.nav}>
                 <SideBar />

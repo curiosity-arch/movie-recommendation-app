@@ -1,5 +1,3 @@
-'use server'
-
 import { redirect } from "next/navigation"
 
 export async function createData() {
@@ -14,6 +12,8 @@ export async function deleteData() {
     
 }
 
-export async function loginUser() {
+export async function loginUser(formData: FormData) {
+    const query = formData.get('username_login');
+    console.log(query);
     redirect('/dashboard');
 }

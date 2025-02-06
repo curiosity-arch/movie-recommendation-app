@@ -3,8 +3,8 @@ import iconMovie from "@/public/icons/movie.png"
 
 export default function HomePage() {
     return (
-        <main>
-            <div>
+        <div>
+            <section id="home">
                 <div>
                     <p>Selamat datang di aplikasi <strong>Sistem Rekomendasi Film</strong> <Image src={iconMovie} alt="Movie Icon" width={15} height={15} /> !</p>
                     <p>Temukan rekomendasi film yang sesuai dengan selera Anda menggunakan teknologi canggih K-Means Clustering.
@@ -24,10 +24,11 @@ export default function HomePage() {
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium repudiandae possimus error cupiditate vero! Necessitatibus nemo doloremque esse quia, mollitia omnis doloribus beatae ab similique, tempore, vitae tempora aliquam adipisci!
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi nostrum cupiditate vero aperiam dolor tenetur asperiores dolores velit optio labore, iste, maiores necessitatibus adipisci illum unde, distinctio earum natus voluptatibus.</p>
                 </div>
-                <div>
-                    
-                </div>
-            </div>
-        </main>
+            </section>
+            <section id="film">
+                <p>Ini bagian film</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet recusandae voluptatem enim repudiandae nemo. Nihil, aliquid accusantium esse cumque vitae explicabo nam dolor aliquam in, quae, doloribus beatae ullam possimus.</p>
+            </section>
+        </div>
     )
 }

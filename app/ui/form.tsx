@@ -1,3 +1,5 @@
+"use client"
+
 import styles from '@/public/styles/form-styles.module.css';
 import YearSelectionForm from '@/app/ui/years-selection';
 import { createData, loginUser } from '@/app/lib/actions';
