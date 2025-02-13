@@ -16,8 +16,5 @@ export default async function Page() {
             ))}
             </div>
         </div>
-        // <div>
-        //     
-        // </div>
     )
 }

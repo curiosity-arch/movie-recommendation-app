@@ -1,8 +1,7 @@
-'use client'
-
 import Link from 'next/link';
 import styles from '@/public/styles/side-nav.module.css';
 import styles_navtop from '@/public/styles/on-top-nav.module.css';
+import { ButtonSignOut } from './button';
 
 const SideBar = () => {
     const menuItems = [
@@ -10,7 +9,6 @@ const SideBar = () => {
         { name: 'Film', path: '/dashboard/film'},
         { name: 'User', path: '/dashboard/user'},
         { name: 'Admin', path: '/dashboard/admin'},
-        { name: 'Logout', path: '/dashboard/logout'},
     ];
 
     return (
@@ -24,6 +22,9 @@ const SideBar = () => {
                     {item.name}
                 </Link>
             ))}
+            <div>
+                <ButtonSignOut />
+            </div>
         </>
     );
 };
@@ -32,7 +33,6 @@ const OnTopBar = () => {
     const menuItems = [
         { name: 'Home', path: '#home'},
         { name: 'Film', path: '#film'},
-        { name: 'Logout', path: '/home/logout'},
     ];
 
     return (
@@ -46,6 +46,9 @@ const OnTopBar = () => {
                     {item.name}
                 </Link>
             ))}
+            <div>
+                <ButtonSignOut />
+            </div>
         </>
     );
 

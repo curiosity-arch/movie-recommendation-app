@@ -4,17 +4,53 @@ import styles from '@/public/styles/form-styles.module.css';
 import YearSelectionForm from '@/app/ui/years-selection';
 import { createData, loginUser } from '@/app/lib/actions';
 
+import { useActionState } from "react";
+import { authenticate } from "../lib/actions";
+import { useSearchParams } from "next/navigation";
+
 export default function Login() {
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/home';
+    const [errorMessage, formAction, isPending] = useActionState(
+        authenticate,
+        undefined,
+    );
+
     return (
         <div className={styles.form}>
             <div className={styles.login_form}>
                 <h2 className={styles.h2}>Login</h2>
-                <form action={loginUser}>
-                    <label htmlFor="username-login">Username</label>
-                    <input type="text" name='username_login' id="username-login" maxLength={10} required/>
-                    <label htmlFor="password-login">Password</label>
-                    <input type="password" name='password_login' id="password-login" maxLength={6} required/><br />
+                <form action={formAction}>
+                    <label htmlFor='username_login'>
+                        Username
+                    </label>
+                    <input 
+                        type='text'
+                        name='username_login'
+                        id='username_login'
+                        placeholder='Input username'
+                        required
+                    />
+                    <label htmlFor='password_login'>
+                        Password
+                    </label>
+                    <input 
+                        type='password'
+                        name='password_login'
+                        id='password_login'
+                        placeholder='Input Password'
+                        required
+                    />
+                    <br />
+                    <input type="hidden" name='redirectTo' value={callbackUrl}/>
                     <button type="submit" className={styles.button}>Login</button>
+                    <div>
+                        {errorMessage && (
+                            <>
+                                <p>{errorMessage}</p>
+                            </>
+                        )}
+                    </div>
                 </form>
             </div>
             <div className={styles.hr}>
