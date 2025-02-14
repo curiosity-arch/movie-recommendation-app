@@ -2,7 +2,7 @@
 
 import styles from '@/public/styles/form-styles.module.css';
 import YearSelectionForm from '@/app/ui/years-selection';
-import { createData, loginUser } from '@/app/lib/actions';
+import { createData } from '@/app/lib/actions';
 
 import { useActionState } from "react";
 import { authenticate } from "../lib/actions";
@@ -20,7 +20,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const handleLogin = async () => {
         setLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         setLoading(false);
     };
 
@@ -29,23 +29,23 @@ export default function Login() {
             <div className={styles.login_form}>
                 <h2 className={styles.h2}>Login</h2>
                 <form action={formAction} onSubmit={handleLogin}>
-                    <label htmlFor='username_user'>
+                    <label htmlFor='username'>
                         Username
                     </label>
                     <input 
                         type='text'
-                        name='username_user'
-                        id='username_user'
+                        name='username'
+                        id='username'
                         placeholder='Input username'
                         required
                     />
-                    <label htmlFor='password_user'>
+                    <label htmlFor='password'>
                         Password
                     </label>
                     <input 
                         type='password'
-                        name='password_user'
-                        id='password_user'
+                        name='password'
+                        id='password'
                         placeholder='Input Password'
                         minLength={6}
                         required

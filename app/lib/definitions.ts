@@ -1,7 +1,7 @@
 export type User = {
-    id_user: number;
-    username_user: string;
-    password_user: string;
+    id: string;
+    username: string;
+    password: string;
 }
 
 export type Admin = {

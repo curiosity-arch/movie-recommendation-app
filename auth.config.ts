@@ -10,22 +10,14 @@ export const authConfig = {
             // request: contains the incoming request
 
             const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith('/home');
-            // const isOnHome = nextUrl.pathname.startsWith('/home');
+            const isOnHome = nextUrl.pathname.startsWith('/home');
 
-            if (isOnDashboard) {
+            if (isOnHome) {
                 if (isLoggedIn) return true;
                 return false; // Redirect unauthenticated users to login page
             } else if (isLoggedIn) {
                 return Response.redirect(new URL('/home', nextUrl));
             }
-
-            // if (isOnHome) {
-            //     if (isLoggedIn) return true;
-            //     return false; // Redirect unauthenticated users to login page
-            // } else if (isLoggedIn) {
-            //     return Response.redirect(new URL('/home', nextUrl));
-            // }
 
             return true;
         },

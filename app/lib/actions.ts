@@ -15,10 +15,6 @@ export async function deleteData() {
     
 }
 
-export async function loginUser() {
-    
-}
-
 export async function authenticate(
     prevState: string | undefined,
     formData: FormData,
