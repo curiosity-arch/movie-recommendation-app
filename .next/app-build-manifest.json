@@ -24,6 +24,11 @@
       "static/css/app/dashboard/page.css",
       "static/chunks/app/dashboard/page.js"
     ],
+    "/seed/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/seed/route.js"
+    ],
     "/home/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

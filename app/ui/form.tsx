@@ -7,6 +7,7 @@ import { createData, loginUser } from '@/app/lib/actions';
 import { useActionState } from "react";
 import { authenticate } from "../lib/actions";
 import { useSearchParams } from "next/navigation";
+import { useState } from 'react';
 
 export default function Login() {
     const searchParams = useSearchParams();
@@ -16,34 +17,48 @@ export default function Login() {
         undefined,
     );
 
+    const [loading, setLoading] = useState(false);
+    const handleLogin = async () => {
+        setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        setLoading(false);
+    };
+
     return (
         <div className={styles.form}>
             <div className={styles.login_form}>
                 <h2 className={styles.h2}>Login</h2>
-                <form action={formAction}>
-                    <label htmlFor='username_login'>
+                <form action={formAction} onSubmit={handleLogin}>
+                    <label htmlFor='username_user'>
                         Username
                     </label>
                     <input 
                         type='text'
-                        name='username_login'
-                        id='username_login'
+                        name='username_user'
+                        id='username_user'
                         placeholder='Input username'
                         required
                     />
-                    <label htmlFor='password_login'>
+                    <label htmlFor='password_user'>
                         Password
                     </label>
                     <input 
                         type='password'
-                        name='password_login'
-                        id='password_login'
+                        name='password_user'
+                        id='password_user'
                         placeholder='Input Password'
+                        minLength={6}
                         required
                     />
                     <br />
                     <input type="hidden" name='redirectTo' value={callbackUrl}/>
-                    <button type="submit" className={styles.button}>Login</button>
+                    <button 
+                        type="submit"
+                        className={styles.button}
+                        disabled={loading}
+                    >
+                        {loading ? "Logging in..." : "Login"}
+                    </button>
                     <div>
                         {errorMessage && (
                             <>

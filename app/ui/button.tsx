@@ -7,9 +7,6 @@ export function ButtonCreate() {
     return <button className={styles.button}>Register</button>
 }
 
-export function ButtonLogin() {
-    return <button className={styles.button}>Login</button>
-}
 
 export function ButtonSignOut() {
     return (
@@ -17,7 +14,7 @@ export function ButtonSignOut() {
             <form 
                 action={async () => {
                     'use server';
-                    await signOut({ redirectTo: '/login' });
+                    await signOut({ redirectTo: '/' });
                 }}
             >
                 <button>
