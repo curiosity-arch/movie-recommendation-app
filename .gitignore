@@ -11,4 +11,4 @@ node_modules
 .vscode
 
 # seed data
-seed
+app/seed
