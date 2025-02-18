@@ -19,14 +19,15 @@
 }
 
 .nav {
-    margin-right: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .item {
     color: white;
     text-decoration: none;
     text-align: center;
-    margin-left: 70px;
+    margin-right: 70px;
     cursor: pointer;
 }
 

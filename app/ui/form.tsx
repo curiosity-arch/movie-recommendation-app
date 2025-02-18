@@ -20,7 +20,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const handleLogin = async () => {
         setLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         setLoading(false);
     };
 

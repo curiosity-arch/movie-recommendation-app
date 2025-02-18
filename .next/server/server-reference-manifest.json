@@ -1,50 +1,17 @@
 {
   "node": {
-    "002071788a428e8ff8f05b41b8068a12c52eb00a37": {
+    "004315c0e3f70587008bb971ba74024532e41fac22": {
       "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%22002071788a428e8ff8f05b41b8068a12c52eb00a37%22%2C%22deleteData%22%5D%2C%5B%22004ce400a0ed784c080aeb91841b2d1d275d3f7f7d%22%2C%22createData%22%5D%2C%5B%2200ee501ad8a4f796d76fbd3a45817aa996ba0184a9%22%2C%22updateData%22%5D%2C%5B%2260882ed6012277cf8331a0fcdb4e91d707d382fc5d%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
+        "app/home/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Fui%2Fbutton.tsx%22%2C%5B%5B%22004315c0e3f70587008bb971ba74024532e41fac22%22%2C%22%24%24RSC_SERVER_ACTION_0%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "004ce400a0ed784c080aeb91841b2d1d275d3f7f7d": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%22002071788a428e8ff8f05b41b8068a12c52eb00a37%22%2C%22deleteData%22%5D%2C%5B%22004ce400a0ed784c080aeb91841b2d1d275d3f7f7d%22%2C%22createData%22%5D%2C%5B%2200ee501ad8a4f796d76fbd3a45817aa996ba0184a9%22%2C%22updateData%22%5D%2C%5B%2260882ed6012277cf8331a0fcdb4e91d707d382fc5d%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "00ee501ad8a4f796d76fbd3a45817aa996ba0184a9": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%22002071788a428e8ff8f05b41b8068a12c52eb00a37%22%2C%22deleteData%22%5D%2C%5B%22004ce400a0ed784c080aeb91841b2d1d275d3f7f7d%22%2C%22createData%22%5D%2C%5B%2200ee501ad8a4f796d76fbd3a45817aa996ba0184a9%22%2C%22updateData%22%5D%2C%5B%2260882ed6012277cf8331a0fcdb4e91d707d382fc5d%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "60882ed6012277cf8331a0fcdb4e91d707d382fc5d": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%22002071788a428e8ff8f05b41b8068a12c52eb00a37%22%2C%22deleteData%22%5D%2C%5B%22004ce400a0ed784c080aeb91841b2d1d275d3f7f7d%22%2C%22createData%22%5D%2C%5B%2200ee501ad8a4f796d76fbd3a45817aa996ba0184a9%22%2C%22updateData%22%5D%2C%5B%2260882ed6012277cf8331a0fcdb4e91d707d382fc5d%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
+        "app/home/page": "rsc"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "Y1Vwrc2zF+9vqMWFNyZI2dDObDcgsLEzAIiejUZmX5c="
+  "encryptionKey": "OvLXxHOJtf5zKBL0bmVDefMeWvnVTd20y7fYIApx9WY="
 }

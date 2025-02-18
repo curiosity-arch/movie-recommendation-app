@@ -46,9 +46,6 @@ const OnTopBar = () => {
                     {item.name}
                 </Link>
             ))}
-            <div>
-                <ButtonSignOut />
-            </div>
         </>
     );
 
