@@ -16,9 +16,9 @@ export default function HomePage() {
                     <p>- Federico Fellini</p>
                 </div>
                 <div>
-                    <q>Cinematography is a language. It can be as varied and as subtle as written language.</q>
+                    <q>Language is much closer to film than painting is.</q>
                     <hr />
-                    <q>Sinematografi adalah sebuah bahasa. Ia bisa sevariatif dan sehalus bahasa tulisan.</q>
+                    <q>Bahasa lebih mirip dengan film daripada lukisan.</q>
                     <p>- Sergei Einstein</p>
                 </div>
             </section>

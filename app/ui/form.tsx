@@ -1,6 +1,7 @@
 "use client"
 
 import styles from '@/public/styles/form-styles.module.css';
+import stylesButton from '@/public/styles/button.module.css';
 import YearSelectionForm from '@/app/ui/years-selection';
 import { createData } from '@/app/lib/actions';
 
@@ -54,7 +55,7 @@ export default function Login() {
                     <input type="hidden" name='redirectTo' value={callbackUrl}/>
                     <button 
                         type="submit"
-                        className={styles.button}
+                        className={stylesButton.ButtonSignOut}
                         disabled={loading}
                     >
                         {loading ? "Logging in..." : "Login"}
