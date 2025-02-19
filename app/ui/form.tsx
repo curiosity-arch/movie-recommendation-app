@@ -12,7 +12,7 @@ import { useState } from 'react';
 export default function Login() {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get('callbackUrl') || '/home';
-    const [errorMessage, formAction, isPending] = useActionState(
+    const [errorMessage, formAction] = useActionState(
         authenticate,
         undefined,
     );
@@ -20,7 +20,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const handleLogin = async () => {
         setLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         setLoading(false);
     };
 

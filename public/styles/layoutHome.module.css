@@ -15,10 +15,6 @@
     border-radius: 10px;
 }
 
-.movieIcon {
-    display: inline-block;
-}
-
 .card {
     background-color: gray;
     padding: 10px;

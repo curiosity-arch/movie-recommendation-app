@@ -1,17 +1,61 @@
 {
   "node": {
-    "004315c0e3f70587008bb971ba74024532e41fac22": {
+    "0068bc8c388f19fdbf883b6f8823c6c40d9ba822be": {
       "workers": {
         "app/home/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Fui%2Fbutton.tsx%22%2C%5B%5B%22004315c0e3f70587008bb971ba74024532e41fac22%22%2C%22%24%24RSC_SERVER_ACTION_0%22%5D%5D%5D%5D&__client_imported__=!",
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.1.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Fui%2Fbutton.tsx%22%2C%5B%5B%220068bc8c388f19fdbf883b6f8823c6c40d9ba822be%22%2C%22%24%24RSC_SERVER_ACTION_0%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
         "app/home/page": "rsc"
       }
+    },
+    "00af2543d8963e36665a84505777af0f7ac793b4c4": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.1.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%2200af2543d8963e36665a84505777af0f7ac793b4c4%22%2C%22updateData%22%5D%2C%5B%2200f14a1dece787ced8b45dae121202e49bea969b2a%22%2C%22deleteData%22%5D%2C%5B%2200fa9308e3ce5c98d12f98345b74d6d131f94ad00f%22%2C%22createData%22%5D%2C%5B%2260b3763f7fe4bfbc13e43788689b3ee64c4d0f23f3%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "00f14a1dece787ced8b45dae121202e49bea969b2a": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.1.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%2200af2543d8963e36665a84505777af0f7ac793b4c4%22%2C%22updateData%22%5D%2C%5B%2200f14a1dece787ced8b45dae121202e49bea969b2a%22%2C%22deleteData%22%5D%2C%5B%2200fa9308e3ce5c98d12f98345b74d6d131f94ad00f%22%2C%22createData%22%5D%2C%5B%2260b3763f7fe4bfbc13e43788689b3ee64c4d0f23f3%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "00fa9308e3ce5c98d12f98345b74d6d131f94ad00f": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.1.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%2200af2543d8963e36665a84505777af0f7ac793b4c4%22%2C%22updateData%22%5D%2C%5B%2200f14a1dece787ced8b45dae121202e49bea969b2a%22%2C%22deleteData%22%5D%2C%5B%2200fa9308e3ce5c98d12f98345b74d6d131f94ad00f%22%2C%22createData%22%5D%2C%5B%2260b3763f7fe4bfbc13e43788689b3ee64c4d0f23f3%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "60b3763f7fe4bfbc13e43788689b3ee64c4d0f23f3": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.1.6_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fworkspaces%2Fmovie-recommendation-app%2Fapp%2Flib%2Factions.ts%22%2C%5B%5B%2200af2543d8963e36665a84505777af0f7ac793b4c4%22%2C%22updateData%22%5D%2C%5B%2200f14a1dece787ced8b45dae121202e49bea969b2a%22%2C%22deleteData%22%5D%2C%5B%2200fa9308e3ce5c98d12f98345b74d6d131f94ad00f%22%2C%22createData%22%5D%2C%5B%2260b3763f7fe4bfbc13e43788689b3ee64c4d0f23f3%22%2C%22authenticate%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
     }
   },
   "edge": {},
-  "encryptionKey": "OvLXxHOJtf5zKBL0bmVDefMeWvnVTd20y7fYIApx9WY="
+  "encryptionKey": "z1eFjbIZpKHrAOTjEzo/rUkfReqftH6wz/qTsuIbFRw="
 }

@@ -1,5 +1,4 @@
 import '@/app/global.css'
-import { Suspense } from 'react'
 
 export const metadata = {
   title: 'Sistem Rekomendasi Film',
