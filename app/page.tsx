@@ -1,5 +1,10 @@
+import { Metadata } from 'next';
 import styles from '@/public/styles/styles.module.css';
 import Login from './ui/form';
+
+export const metadata: Metadata = {
+    title: 'Login Sistem Rekomendasi Film',
+}
 
 export default function Page() {
     return (
