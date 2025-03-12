@@ -1,0 +1,23 @@
+.layoutHome {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+}
+
+.home {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: gray;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
