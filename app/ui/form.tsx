@@ -1,14 +1,13 @@
 "use client"
 
 import styles from '@/public/styles/form-styles.module.css';
-import YearSelectionForm from '@/app/ui/years-selection';
 import stylesButton from "@/public/styles/button.module.css";
-import { createData } from '@/app/lib/actions';
 
 import { useActionState } from "react";
 import { authenticate } from "../lib/actions";
 import { useSearchParams } from "next/navigation";
 import { useState, Suspense } from 'react';
+import CreateFormUser from './create-form';
 
 function LoginContent() {
     const searchParams = useSearchParams();
@@ -74,15 +73,7 @@ function LoginContent() {
             </div>
             <div className={styles.register_form}>
                 <h2 className={styles.h2}>Register</h2>
-                <form action={createData}>
-                    <label htmlFor="username-register">Username</label>
-                    <input type="text" name="username-register" id="username-register" maxLength={10} required/>
-                    <label htmlFor="password-register">Password</label>
-                    <input type="password" name="password_register" id="password-register" maxLength={6} required/>
-                    <label htmlFor="birthYear">Tahun Lahir</label>
-                    <YearSelectionForm /><br />
-                    <button type="submit" className={styles.button}>Register</button>
-                </form>
+                <CreateFormUser />
             </div>
         </div>
     );
