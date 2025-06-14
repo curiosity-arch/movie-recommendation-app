@@ -1,0 +1,26 @@
+.buttonSignIn, .buttonSignOut {
+    width: fit-content;
+    height: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    background: linear-gradient(45deg, #e5e5e5, #606060);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttonSignOut {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttonSignIn:hover, .buttonSignOut:hover {
+    transform: scale(1.1);
+    color: white;
+    background: linear-gradient(45deg, #606060, #e5e5e5);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,133 @@
+"use client"
+
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Movie } from "../lib/definitions";
+import RecommendationSection from "./RecommendationSection";
+import SuggestionIcon from "@/public/icons/suggestion.png";
+import styles from "@/public/styles/layoutHome.module.css";
+
+export default function ChooseMovie() {
+    // Digunakan untuk merekomendasikan film berdasarkan film yang dipilih
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+
+    // Digunakan untuk popup setelah memilih film
+    const [isOpen, setIsOpen] = useState(false);
+    const handleShow = () => setIsOpen(true);
+    const handleClose = () => setIsOpen(false);
+
+    // API untuk menghasilkan daftar film yang dimiliki
+    // Versi lama
+    // useEffect(() => {
+    //     fetch("/api/movies")
+    //     .then((res) => res.json())
+    //     .then((data) => setMovies(data));
+    // }, []);
+
+    // Versi update
+    useEffect(() => {
+        fetch("/api/user-movies", {
+            credentials: "include",
+        })
+        .then((res) => {
+            if (!res.ok) throw new Error("Unauthorized");
+            return res.json();
+        })
+        .then((data) => setMovies(data))
+        .catch((err) => console.error("Error:", err));
+    }, []);
+
+    return (
+        <div>
+            <div>
+                <h2>Temukan Film Favoritmu !</h2>
+                <div className={styles.suggestion}>
+                    <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                    <span>Pilih film untuk mendapatkan rekomendasi !</span>
+                </div>
+                {/* Daftar Film */}
+                <div className={styles.overflow}>
+                    <div className={styles.filmSection}>
+                        {movies.map((movie) => (
+                            <button
+                                key={movie.id}
+                                onClick={() => {
+                                    setSelectedMovie(movie);
+                                    handleShow();
+                                }}
+                                className={styles.film}
+                            >
+                                <div>
+                                    <Image
+                                        src={movie.poster}
+                                        alt={movie.title}
+                                        width={150}
+                                        height={220}
+                                        className={styles.imageMovies}
+                                    />
+                                    <h3>{movie.title}</h3>
+                                    <p>{movie.genre}</p>
+                                    <p>{movie.rating}</p>
+                                </div>
+                            </button>
+                        ))}
+
+                        {/* Tampilkan Rekomendasi Jika Ada Film yang Dipilih */}
+                        {selectedMovie && isOpen && (
+                            <>
+                                <div
+                                    onClick={handleClose}
+                                    className={styles.divPopup}
+                                />
+                                <div className={styles.divPopupContent} onClick={handleClose}>
+                                    <div className={styles.selectedFilm}>
+                                        <section>
+                                            <Image
+                                                src={selectedMovie.poster}
+                                                alt={selectedMovie.title}
+                                                width={150}
+                                                height={220}
+                                                className={styles.selectedImageFilm}
+                                            />
+                                        </section>
+                                        <section>
+                                            <h2>{selectedMovie.title}</h2>
+                                            <p>{selectedMovie.year} | {selectedMovie.genre} | {selectedMovie.rating} | {selectedMovie.language}</p>
+                                            <p>{selectedMovie.description}</p>
+                                            <hr />
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th className={styles.description}>Director</th>
+                                                        <td>:</td>
+                                                        <td>{selectedMovie.director}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className={styles.description}>Aktor</th>
+                                                        <td>:</td>
+                                                        <td>{selectedMovie.actors.slice(1,-1)}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                    </div>
+                                    <h2>Hasil rekomendasi untukmu:</h2>
+                                    <div className={styles.suggestion}>
+                                        <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                                        <span>
+                                            Rekomendasi berdasarkan: <span className={styles.selectedMovie}>{selectedMovie.title}</span>
+                                        </span>
+                                    </div>
+                                    <div className={styles.overflowRecommendation}>
+                                        <RecommendationSection selectedMovie={selectedMovie} />
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
