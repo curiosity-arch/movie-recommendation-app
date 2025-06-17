@@ -11,12 +11,12 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 export async function GET(req: Request) {
     const token = await getToken({ req, secret: process.env.AUTH_SECRET });
 
-    if (!token?.username) {
+    if (!token?.name) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Ambil tahun lahir user
-    const result = await sql`SELECT tahun_lahir FROM users WHERE username = ${token.username}`;
+    const result = await sql`SELECT tahun_lahir FROM users WHERE username = ${token.name}`;
     if (result.length === 0) {
         return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
