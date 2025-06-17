@@ -1,0 +1,182 @@
+.layoutHome {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+}
+
+.home {
+    background-image: url("../images/background_home.jpg");
+    background-size: cover;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    padding: 20px;
+}
+
+.overflow {
+    height: 1000px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.overflowRecommendation {
+    width: 1300px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.overflow::-webkit-scrollbar, .overflowRecommendation::-webkit-scrollbar {
+    display: none;
+}
+
+.quote {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.image {
+    border-radius: 8px;
+    border: 1px solid white;
+}
+
+.suggestion {
+    margin: 10px;
+    padding: 5px;
+    width: max-content;
+    border: 1px solid white;
+    border-radius: 20px;
+    opacity: 80%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.filmSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.filmRecommendSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px;
+}
+
+.description {
+    text-align: start;
+}
+
+.film {
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.film:hover {
+    box-shadow: 3px 3px 10px 1px black;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.selectedMovie {
+    color: rgb(115, 115, 243);
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.movieCard {
+    width: 300px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+}
+
+.imageMovies {
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px 1px black;
+    cursor: pointer;
+}
+
+.divPopup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+}
+
+.divPopupContent {
+    position: fixed;
+    width: 1300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(117, 117, 117, 0.7);
+    z-index: 100;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.selectedFilm {
+    background-color: rgba(197, 197, 197, 0.559);
+    border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 50px;
+}
+
+.selectedImageFilm {
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px 1px black;
+}
+
+.aboutColumn {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.aboutRow {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 100px;
+}
+
+.aboutSection {
+    text-align: start;
+}

@@ -1,0 +1,22 @@
+body {
+    background-image: url(../public/images/sea.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    height: 100%;
+    margin: 0;
+}
+
+p, h2, label, input, button, option, select {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,27 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.login_form {
+    padding: 30px;
+    width: 200px;
+}
+
+.register_form {
+    padding: 30px;
+    width: 200px;
+}
+
+.h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hr {
+    color: black;
+    border-top: 300px solid #d7d7d7;
+}
