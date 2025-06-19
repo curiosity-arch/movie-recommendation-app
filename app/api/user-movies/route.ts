@@ -9,9 +9,11 @@ import { Movie } from "@/app/lib/definitions";
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function GET(req: Request) {
-    const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+    const cookieHeader = req.headers.get("cookie");
+    console.log("Cookie header in API:", cookieHeader);
 
-    console.log("TOKEN:", token);
+    const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+    console.log("Token from getToken():", token);
 
     if (!token?.name) {
         console.error("Token kosong, unauthorized.");

@@ -5,6 +5,9 @@ import { getToken } from "next-auth/jwt"; // Gunakan getToken dari NextAuth
 export async function middleware(req: NextRequest) {
     const token = await getToken({ req, secret: process.env.AUTH_SECRET });
 
+    // Mengecek token
+    console.log("middleware - token", token);
+
     const isAuthPage = req.nextUrl.pathname.startsWith("/auth");
     const isProtectedPage = req.nextUrl.pathname.startsWith("/home");
 
