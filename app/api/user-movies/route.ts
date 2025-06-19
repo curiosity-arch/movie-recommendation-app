@@ -11,7 +11,10 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 export async function GET(req: Request) {
     const token = await getToken({ req, secret: process.env.AUTH_SECRET });
 
+    console.log("TOKEN:", token);
+
     if (!token?.name) {
+        console.error("Token kosong, unauthorized.");
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
