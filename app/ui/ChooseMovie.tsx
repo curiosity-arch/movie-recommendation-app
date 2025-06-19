@@ -27,7 +27,8 @@ export default function ChooseMovie() {
 
     // Versi update
     useEffect(() => {
-        fetch("/api/user-movies", {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+        fetch(`${baseUrl}/api/user-movies`, {
             credentials: "include",
         })
         .then((res) => {
