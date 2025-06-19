@@ -1,27 +1,27 @@
 import { NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
+// import { getToken } from "next-auth/jwt";
 import fs from "fs";
 import path from "path";
 import Papa from "papaparse";
 import postgres from "postgres";
+import { auth } from "@/app/auth/auth";
 import { Movie } from "@/app/lib/definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-export async function GET(req: Request) {
-    const cookieHeader = req.headers.get("cookie");
-    console.log("Cookie header in API:", cookieHeader);
+export async function GET() {
+    const session = await auth();
+    console.log("Session:", session);
 
-    const token = await getToken({ req, secret: process.env.AUTH_SECRET });
-    console.log("Token from getToken():", token);
-
-    if (!token?.name) {
-        console.error("Token kosong, unauthorized.");
+    if (!session || !session.user?.name) {
+        console.error("Session kosong, unauthorized.");
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const username = session.user.name;
+
     // Ambil tahun lahir user
-    const result = await sql`SELECT tahun_lahir FROM users WHERE username = ${token.name}`;
+    const result = await sql`SELECT tahun_lahir FROM users WHERE username = ${username}`;
     if (result.length === 0) {
         return NextResponse.json({ error: "User not found" }, { status: 404 });
     }

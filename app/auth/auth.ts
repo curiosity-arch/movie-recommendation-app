@@ -1,10 +1,10 @@
 import NextAuth from 'next-auth';
-import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
-import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcryptjs';
 import postgres from 'postgres';
+import { authConfig } from './auth.config';
+import type { User } from '@/app/lib/definitions';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -24,7 +24,10 @@ export const { auth, signIn, signOut } = NextAuth({
     Credentials({
       async authorize(credentials) {
         const parsedCredentials = z
-          .object({ username: z.string().min(3), password: z.string().min(6) })
+          .object({
+            username: z.string().min(3),
+            password: z.string().min(6)
+          })
           .safeParse(credentials);
 
         if (!parsedCredentials.success) {
@@ -32,8 +35,8 @@ export const { auth, signIn, signOut } = NextAuth({
         }
 
         const { username, password } = parsedCredentials.data;
+        
         const user = await getUser(username);
-
         if (!user) {
           throw new Error('User not found');
         }
@@ -77,8 +80,10 @@ export const { auth, signIn, signOut } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user.id = token.id as string;
-      session.user.name = token.name as string;
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.name = token.name as string;
+      }
       return session;
     },
   },
