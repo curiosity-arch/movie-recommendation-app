@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// import { getToken } from "next-auth/jwt";
 import fs from "fs";
 import path from "path";
 import Papa from "papaparse";
@@ -9,7 +8,7 @@ import { Movie } from "@/app/lib/definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-export async function GET() {
+export async function GET(req: Request) {
     const session = await auth();
     console.log("Session:", session);
 
@@ -18,9 +17,8 @@ export async function GET() {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const username = session.user.name;
-
     // Ambil tahun lahir user
+    const username = session.user.name;
     const result = await sql`SELECT tahun_lahir FROM users WHERE username = ${username}`;
     if (result.length === 0) {
         return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -29,10 +27,14 @@ export async function GET() {
     const tahunLahir = result[0].tahun_lahir;
     const umur = new Date().getFullYear() - parseInt(tahunLahir);
 
+    // Ambil genre & language dari query param
+    const url = new URL(req.url);
+    const genre = url.searchParams.get("genre");
+    const language = url.searchParams.get("language");
+
     // Ambil film dari CSV
     const filePath = path.join(process.cwd(), "public/dataset", "film_dataset_with_scaled_features.csv");
     const fileContent = fs.readFileSync(filePath, "utf-8");
-
     const { data } = Papa.parse(fileContent, {
         header: true,
         dynamicTyping: true,
@@ -57,7 +59,13 @@ export async function GET() {
             row.languages_Dutch_scaled, row.languages_English_scaled, row.languages_Indonesian_scaled, row.languages_Minangkabau_scaled
         ],
     }))
-    .filter((movieFilter) => umur >= movieFilter.rating_float);
+    // .filter((movieFilter) => umur >= movieFilter.rating_float);
 
-    return NextResponse.json(movies);
+    const filtered = movies.filter((movie) =>
+        umur >= movie.rating_float && 
+        (!genre || movie.genre?.toLowerCase().includes(genre.toLowerCase())) &&
+        (!language || movie.language?.toLowerCase().includes(language.toLowerCase()))
+    );
+
+    return NextResponse.json(filtered);
 }

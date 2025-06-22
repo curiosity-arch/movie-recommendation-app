@@ -11,6 +11,8 @@ export default function ChooseMovie() {
     // Digunakan untuk merekomendasikan film berdasarkan film yang dipilih
     const [movies, setMovies] = useState<Movie[]>([]);
     const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+    const [selectedGenre, setSelectedGenre] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
 
     // Digunakan untuk popup setelah memilih film
     const [isOpen, setIsOpen] = useState(false);
@@ -28,16 +30,23 @@ export default function ChooseMovie() {
     // Versi update
     useEffect(() => {
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
-        fetch(`${baseUrl}/api/user-movies`, {
-            credentials: "include",
-        })
+        
+        //const url = `${baseUrl}/api/user-movies${selectedGenre ? `?genre=${encodeURIComponent(selectedGenre)}` : ""}`;
+        
+        const query = new URLSearchParams();
+        if (selectedGenre) query.append("genre", selectedGenre);
+        if (selectedLanguage) query.append("language", selectedLanguage);
+
+        const url = `${baseUrl}/api/user-movies?${query.toString()}`;
+
+        fetch(url, { credentials: "include" })
         .then((res) => {
             if (!res.ok) throw new Error("Unauthorized");
             return res.json();
         })
         .then((data) => setMovies(data))
         .catch((err) => console.error("Error:", err));
-    }, []);
+    }, [selectedGenre, selectedLanguage]);
 
     return (
         <div>
@@ -47,6 +56,31 @@ export default function ChooseMovie() {
                     <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
                     <span>Pilih film untuk mendapatkan rekomendasi !</span>
                 </div>
+                {/* Daftar Genre */}
+                <select value={selectedGenre}
+                    onChange={(e) => setSelectedGenre(e.target.value)}
+                    className={styles.genreFilter}
+                >
+                    <option value="">Semua Genre</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Horror">Horror</option>
+                </select>
+
+                {/* Daftar Bahasa */}
+                <select value={selectedLanguage}
+                    onChange={(e) => setSelectedLanguage(e.target.value)}
+                    className={styles.languageFilter}
+                >
+                    <option value="">Semua Bahasa</option>
+                    <option value="Indonesian">Indonesia</option>
+                    <option value="Minangkabau">Minangkabau</option>
+                    <option value="Dutch">Belanda</option>
+                    <option value="English">Inggris</option>
+                </select>
+
                 {/* Daftar Film */}
                 <div className={styles.overflow}>
                     <div className={styles.filmSection}>
