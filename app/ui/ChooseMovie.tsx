@@ -31,8 +31,6 @@ export default function ChooseMovie() {
     useEffect(() => {
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
         
-        //const url = `${baseUrl}/api/user-movies${selectedGenre ? `?genre=${encodeURIComponent(selectedGenre)}` : ""}`;
-        
         const query = new URLSearchParams();
         if (selectedGenre) query.append("genre", selectedGenre);
         if (selectedLanguage) query.append("language", selectedLanguage);

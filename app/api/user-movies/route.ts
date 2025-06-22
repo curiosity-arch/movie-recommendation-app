@@ -59,7 +59,6 @@ export async function GET(req: Request) {
             row.languages_Dutch_scaled, row.languages_English_scaled, row.languages_Indonesian_scaled, row.languages_Minangkabau_scaled
         ],
     }))
-    // .filter((movieFilter) => umur >= movieFilter.rating_float);
 
     const filtered = movies.filter((movie) =>
         umur >= movie.rating_float && 
