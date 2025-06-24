@@ -57,15 +57,27 @@ export default function ChooseMovie() {
     return (
         <div>
             <div>
-                <h2>Pilihan Film Kamu Sebelumnya</h2>
-                {histories.map((item) => (
-                    <div key={item.id}>
-                        <p>{item.movie_title}</p>
-                        <Image src={item.poster} alt={item.movie_title} width={100} height={120}/>
+                {histories.length > 0 && (
+                    <div className={styles.histories_container}>
+                        <div className={styles.histories_caption}>
+                            <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                            <span>Pilihan Film Kamu Sebelumnya</span>
+                        </div>
+                        <div className={styles.histories_items}>
+                            {histories.map((item) => (
+                                <div 
+                                    key={item.id}
+                                    className={styles.histories_item}
+                                >
+                                    <Image src={item.poster} alt={item.movie_title} width={110} height={150}/>
+                                    <p>{item.movie_title}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                ))}
+                )}
 
-                <h2>Temukan Film Favoritmu !</h2>
+                <h2 id="film">Temukan Film Favoritmu !</h2>
                 <div className={styles.suggestion}>
                     <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
                     <span>Pilih film untuk mendapatkan rekomendasi !</span>

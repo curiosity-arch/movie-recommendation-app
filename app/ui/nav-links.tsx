@@ -3,9 +3,9 @@ import styles_navtop from '@/public/styles/on-top-nav.module.css';
 
 const OnTopBar = () => {
     const menuItems = [
-        { name: 'Home', path: '#home'},
-        { name: 'Film', path: '#film'},
-        { name: 'About', path: '#about'}
+        { name: 'Home', path: '#home'}, // ada di halaman /home
+        { name: 'Film', path: '#film'}, // ada di halaman /ChooseMovie
+        { name: 'About', path: '#about'} // ada di halaman /home
     ];
 
     return (

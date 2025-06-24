@@ -49,7 +49,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-            <section id="film" className={styles.section}>
+            <section className={styles.section}>
                     <ChooseMovie />
             </section>
             <section id="about" className={styles.section}>
