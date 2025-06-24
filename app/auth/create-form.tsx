@@ -2,7 +2,6 @@
 
 import { useState, useActionState, useEffect, startTransition } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
 import { createUser, State } from "@/app/lib/createUser";
 import styles from "@/public/styles/form-styles.module.css";
 import stylesButton from "@/public/styles/button.module.css";
@@ -14,18 +13,11 @@ export default function CreateForm() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (state?.success && state?.username) {
-            const passwordInput = document.getElementById("passwordCreate") as HTMLInputElement | null;
-            const password = passwordInput ? passwordInput.value : "";
-
-            // Login otomatis setelah register
-            signIn("credentials", {
-                username: state.username,
-                password: password,
-                callbackUrl: "/home",
-            });
+        if (state?.success) {
+            setLoading(false);
+            router.push("/home");
         }
-    }, [state?.success, state?.username, router]);
+    }, [state?.success, router]);
     
     // Mendapatkan tahun saat ini
     const currentYear = new Date().getFullYear();
@@ -50,8 +42,6 @@ export default function CreateForm() {
         startTransition(() => {
             formAction(formData);
         });
-
-        setLoading(false);
     };
 
     return (
