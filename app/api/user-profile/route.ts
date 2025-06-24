@@ -1,3 +1,4 @@
+// API untuk mengakses informasi user (tidak digunakan)
 import { NextResponse } from "next/server";
 import {Pool} from 'pg';
 import { getToken } from "next-auth/jwt";

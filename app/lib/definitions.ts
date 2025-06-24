@@ -25,3 +25,11 @@ export type Movie = {
     rating_float: number;
     features: number[];
 };
+
+export type Histories = {
+    id: number;
+    user_id: number;
+    movie_id: number;
+    movie_title: string;
+    poster: string;
+}

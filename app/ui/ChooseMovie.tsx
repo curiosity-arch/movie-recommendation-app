@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Movie } from "../lib/definitions";
+import { Histories, Movie } from "../lib/definitions";
 import RecommendationSection from "./RecommendationSection";
 import SuggestionIcon from "@/public/icons/suggestion.png";
 import styles from "@/public/styles/layoutHome.module.css";
@@ -13,6 +13,7 @@ export default function ChooseMovie() {
     const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
     const [selectedGenre, setSelectedGenre] = useState("");
     const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [histories, setHistories] = useState<Histories[]>([]);
 
     // Digunakan untuk popup setelah memilih film
     const [isOpen, setIsOpen] = useState(false);
@@ -46,9 +47,24 @@ export default function ChooseMovie() {
         .catch((err) => console.error("Error:", err));
     }, [selectedGenre, selectedLanguage]);
 
+    useEffect(() => {
+        fetch("/api/histories", { credentials: "include" })
+        .then((res) => res.json())
+        .then((data) => setHistories(data))
+        .catch((err) => console.error("Error loading history:", err));
+    }, []);
+
     return (
         <div>
             <div>
+                <h2>Pilihan Film Kamu Sebelumnya</h2>
+                {histories.map((item) => (
+                    <div key={item.id}>
+                        <p>{item.movie_title}</p>
+                        <Image src={item.poster} alt={item.movie_title} width={100} height={120}/>
+                    </div>
+                ))}
+
                 <h2>Temukan Film Favoritmu !</h2>
                 <div className={styles.suggestion}>
                     <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
@@ -88,6 +104,18 @@ export default function ChooseMovie() {
                                 onClick={() => {
                                     setSelectedMovie(movie);
                                     handleShow();
+
+                                    // Simpan histori ke server
+                                    fetch("/api/history", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                            movieId: movie.id,
+                                            movieTitle: movie.title,
+                                        }),
+                                    }).catch((err) => console.error("Gagal menyimpan histori:", err));
                                 }}
                                 className={styles.film}
                             >

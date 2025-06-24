@@ -1,3 +1,4 @@
+// API untuk mengakses daftar film tanpa filtering umur, genre, bahasa (tidak digunakan)
 import { NextResponse } from "next/server";
 import fs from 'fs';
 import path from 'path';
