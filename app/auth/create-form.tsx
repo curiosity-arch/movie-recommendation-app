@@ -1,8 +1,9 @@
 "use client";
 
-import { createUser, State } from "@/app/lib/createUser";
 import { useState, useActionState, useEffect, startTransition } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { createUser, State } from "@/app/lib/createUser";
 import styles from "@/public/styles/form-styles.module.css";
 import stylesButton from "@/public/styles/button.module.css";
 
@@ -17,10 +18,12 @@ export default function CreateForm() {
             const passwordInput = document.getElementById("passwordCreate") as HTMLInputElement | null;
             const password = passwordInput ? passwordInput.value : "";
 
-            sessionStorage.setItem("username", state.username);
-            sessionStorage.setItem("password", password);
-
-            router.push("/home");
+            // Login otomatis setelah register
+            signIn("credentials", {
+                username: state.username,
+                password: password,
+                callbackUrl: "/home",
+            });
         }
     }, [state?.success, state?.username, router]);
     

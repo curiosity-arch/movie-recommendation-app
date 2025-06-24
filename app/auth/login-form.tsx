@@ -1,11 +1,10 @@
 "use client"
 
+import React, { useState, Suspense } from 'react';
+import { useSearchParams, useRouter } from "next/navigation";
+import { authenticate } from "../lib/actions";
 import styles from '@/public/styles/form-styles.module.css';
 import stylesButton from "@/public/styles/button.module.css";
-
-import React, { useState, Suspense } from 'react';
-import { authenticate } from "../lib/actions";
-import { useSearchParams, useRouter } from "next/navigation";
 
 function LoginContent() {
     const searchParams = useSearchParams();
