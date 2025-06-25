@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Histories, Movie } from "../lib/definitions";
+import { Movie, Histories } from "../lib/definitions";
 import RecommendationSection from "./RecommendationSection";
 import SuggestionIcon from "@/public/icons/suggestion.png";
+import FilmIcon from "@/public/icons/movie.png";
 import styles from "@/public/styles/layoutHome.module.css";
 
 export default function ChooseMovie() {
@@ -76,129 +77,140 @@ export default function ChooseMovie() {
                         </div>
                     </div>
                 )}
-
-                <h2 id="film">Temukan Film Favoritmu !</h2>
+            </div>
+            <div id="film" className={styles.filter_container}>
+                <h2>Temukan Film Favoritmu <Image src={FilmIcon} alt="Film Icon" width={20} height={20} /></h2>
                 <div className={styles.suggestion}>
                     <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
                     <span>Pilih film untuk mendapatkan rekomendasi !</span>
                 </div>
+
                 {/* Daftar Genre */}
-                <select value={selectedGenre}
-                    onChange={(e) => setSelectedGenre(e.target.value)}
-                    className={styles.genreFilter}
-                >
-                    <option value="">Semua Genre</option>
-                    <option value="Action">Action</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Thriller">Thriller</option>
-                    <option value="Horror">Horror</option>
-                </select>
+                <div className={styles.genresButton}>
+                    {["", "Action", "Comedy", "Drama", "Thriller", "Horror"].map((genre) => (
+                        <button
+                            key={genre}
+                            onClick={() => setSelectedGenre(genre)}
+                            lang="id"
+                            className={`
+                                ${styles.genreButton}
+                                ${selectedGenre === genre ? styles.activeButton : ""}
+                            `}
+                        >
+                            {genre === "" ? "Semua Genre" : genre}
+                        </button>
+                    ))}
+                </div>
 
                 {/* Daftar Bahasa */}
-                <select value={selectedLanguage}
-                    onChange={(e) => setSelectedLanguage(e.target.value)}
-                    className={styles.languageFilter}
-                >
-                    <option value="">Semua Bahasa</option>
-                    <option value="Indonesian">Indonesia</option>
-                    <option value="Minangkabau">Minangkabau</option>
-                    <option value="Dutch">Belanda</option>
-                    <option value="English">Inggris</option>
-                </select>
+                <div className={styles.languagesButton}>
+                    {["", "Indonesian", "Minangkabau", "Dutch", "English"].map((language) => (
+                        <button
+                            key={language}
+                            onClick={() => setSelectedLanguage(language)}
+                            lang="id"
+                            className={`
+                                ${styles.languageButton} 
+                                ${selectedLanguage === language ? styles.activeButton : ""}
+                            `}
+                        >
+                            {language === "" ? "Semua Bahasa" : language}
+                        </button>
+                    ))}
+                </div>
+            </div>
 
-                {/* Daftar Film */}
-                <div className={styles.overflow}>
-                    <div className={styles.filmSection}>
-                        {movies.map((movie) => (
-                            <button
-                                key={movie.id}
-                                onClick={() => {
-                                    setSelectedMovie(movie);
-                                    handleShow();
+            {/* Daftar Film */}
+            <div className={styles.overflow}>
+                <div className={styles.filmSection}>
+                    {movies.map((movie) => (
+                        <button
+                            key={movie.id}
+                            onClick={() => {
+                                setSelectedMovie(movie);
+                                handleShow();
 
-                                    // Simpan histori ke server
-                                    fetch("/api/history", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                        },
-                                        body: JSON.stringify({
-                                            movieId: movie.id,
-                                            movieTitle: movie.title,
-                                        }),
-                                    }).catch((err) => console.error("Gagal menyimpan histori:", err));
-                                }}
-                                className={styles.film}
-                            >
-                                <div>
-                                    <Image
-                                        src={movie.poster}
-                                        alt={movie.title}
-                                        width={150}
-                                        height={220}
-                                        className={styles.imageMovies}
-                                    />
-                                    <h3>{movie.title}</h3>
-                                    <p>{movie.genre}</p>
-                                    <p>{movie.rating}</p>
-                                </div>
-                            </button>
-                        ))}
-
-                        {/* Tampilkan Rekomendasi Jika Ada Film yang Dipilih */}
-                        {selectedMovie && isOpen && (
-                            <>
-                                <div
-                                    onClick={handleClose}
-                                    className={styles.divPopup}
+                                // Simpan histori ke server
+                                fetch("/api/history", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        movieId: movie.id,
+                                        movieTitle: movie.title,
+                                    }),
+                                }).catch((err) => console.error("Gagal menyimpan histori:", err));
+                            }}
+                            className={styles.film}
+                        >
+                            <div>
+                                <Image
+                                    src={movie.poster}
+                                    alt={movie.title}
+                                    width={150}
+                                    height={220}
+                                    className={styles.imageMovies}
                                 />
-                                <div className={styles.divPopupContent} onClick={handleClose}>
-                                    <div className={styles.selectedFilm}>
-                                        <section>
-                                            <Image
-                                                src={selectedMovie.poster}
-                                                alt={selectedMovie.title}
-                                                width={150}
-                                                height={220}
-                                                className={styles.selectedImageFilm}
-                                            />
-                                        </section>
-                                        <section>
-                                            <h2>{selectedMovie.title}</h2>
-                                            <p>{selectedMovie.year} | {selectedMovie.genre} | {selectedMovie.rating} | {selectedMovie.language}</p>
-                                            <p>{selectedMovie.description}</p>
-                                            <hr />
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <th className={styles.description}>Director</th>
-                                                        <td>:</td>
-                                                        <td>{selectedMovie.director}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th className={styles.description}>Aktor</th>
-                                                        <td>:</td>
-                                                        <td>{selectedMovie.actors.slice(1,-1)}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </section>
-                                    </div>
-                                    <h2>Hasil rekomendasi untukmu:</h2>
-                                    <div className={styles.suggestion}>
-                                        <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
-                                        <span>
-                                            Rekomendasi berdasarkan: <span className={styles.selectedMovie}>{selectedMovie.title}</span>
-                                        </span>
-                                    </div>
-                                    <div className={styles.overflowRecommendation}>
-                                        <RecommendationSection selectedMovie={selectedMovie} />
-                                    </div>
+                                <h3>{movie.title}</h3>
+                                <p>{movie.genre}</p>
+                                <p>{movie.rating}</p>
+                            </div>
+                        </button>
+                    ))}
+
+                    {/* Tampilkan Rekomendasi Jika Ada Film yang Dipilih */}
+                    {selectedMovie && isOpen && (
+                        <>
+                            <div
+                                onClick={handleClose}
+                                className={styles.divPopup}
+                            />
+                            <div className={styles.divPopupContent} onClick={handleClose}>
+                                <div className={styles.selectedFilm}>
+                                    <section>
+                                        <Image
+                                            src={selectedMovie.poster}
+                                            alt={selectedMovie.title}
+                                            width={150}
+                                            height={220}
+                                            className={styles.selectedImageFilm}
+                                        />
+                                    </section>
+                                    <section>
+                                        <h2>{selectedMovie.title}</h2>
+                                        <p>{selectedMovie.year} | {selectedMovie.genre} | {selectedMovie.rating} | {selectedMovie.language}</p>
+                                        <p>{selectedMovie.description}</p>
+                                        <hr />
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th className={styles.description}>Director</th>
+                                                    <td>:</td>
+                                                    <td>{selectedMovie.director}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className={styles.description}>Aktor</th>
+                                                    <td>:</td>
+                                                    <td>{selectedMovie.actors.slice(1,-1)}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
                                 </div>
-                            </>
-                        )}
-                    </div>
+                                <h2>Hasil rekomendasi untukmu:</h2>
+                                <div className={styles.suggestion}>
+                                    <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                                    <span>
+                                        Rekomendasi berdasarkan: <span className={styles.selectedMovie}>{selectedMovie.title}</span>
+                                    </span>
+                                </div>
+                                <div className={styles.overflowRecommendation}>
+                                    <RecommendationSection selectedMovie={selectedMovie} />
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
