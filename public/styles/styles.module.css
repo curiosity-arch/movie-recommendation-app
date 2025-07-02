@@ -17,7 +17,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .introduction {
@@ -39,4 +38,32 @@
     color: white;
     padding: 0px;
     margin-top: -80px;
+}
+
+@media (max-width: 400px) {
+    .main {
+        justify-content: space-evenly;
+        gap: 100px;
+        height: max-content;
+        padding: 15px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .introduction {
+        width: 300px;
+    }
+
+    
+
+    .footer {
+        margin-top: 100px;
+    }
+
+    .introduction, .footer {
+        font-size: 16px;
+    }
 }

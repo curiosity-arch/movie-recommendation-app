@@ -24,6 +24,7 @@ export type Movie = {
     actors: string;
     rating_float: number;
     features: number[];
+    trailer: string;
 };
 
 export type Histories = {

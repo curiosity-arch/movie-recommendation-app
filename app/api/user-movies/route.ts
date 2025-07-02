@@ -58,6 +58,7 @@ export async function GET(req: Request) {
             row.genre_Drama_scaled, row.genre_History_scaled, row.genre_Horror_scaled, row.genre_Romance_scaled, row.genre_Thriller_scaled, 
             row.languages_Dutch_scaled, row.languages_English_scaled, row.languages_Indonesian_scaled, row.languages_Minangkabau_scaled
         ],
+        trailer: row.trailer_url,
     }))
 
     const filtered = movies.filter((movie) =>

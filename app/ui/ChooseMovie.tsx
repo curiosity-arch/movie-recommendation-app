@@ -6,6 +6,8 @@ import { Movie, Histories } from "../lib/definitions";
 import RecommendationSection from "./RecommendationSection";
 import SuggestionIcon from "@/public/icons/suggestion.png";
 import FilmIcon from "@/public/icons/movie.png";
+import CloseIcon from "@/public/icons/close.png";
+import PlayIcon from "@/public/icons/play.png";
 import styles from "@/public/styles/layoutHome.module.css";
 
 export default function ChooseMovie() {
@@ -20,6 +22,11 @@ export default function ChooseMovie() {
     const [isOpen, setIsOpen] = useState(false);
     const handleShow = () => setIsOpen(true);
     const handleClose = () => setIsOpen(false);
+
+    // Digunakan untuk popup trailer film
+    const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+    const handleOpenTrailer = () => setIsTrailerOpen(true);
+    const handleCloseTrailer = () => setIsTrailerOpen(false);
 
     // API untuk menghasilkan daftar film yang dimiliki
     // Versi lama
@@ -162,11 +169,14 @@ export default function ChooseMovie() {
                     {/* Tampilkan Rekomendasi Jika Ada Film yang Dipilih */}
                     {selectedMovie && isOpen && (
                         <>
-                            <div
+                            <div className={styles.divPopup}></div>
+                            <button 
                                 onClick={handleClose}
-                                className={styles.divPopup}
-                            />
-                            <div className={styles.divPopupContent} onClick={handleClose}>
+                                className={styles.closeButton}
+                            >
+                                <Image src={CloseIcon} alt="Close" width={30} height={30} className={styles.closeIcon}/>
+                            </button>
+                            <div className={styles.divPopupContent}>
                                 <div className={styles.selectedFilm}>
                                     <section>
                                         <Image
@@ -180,7 +190,29 @@ export default function ChooseMovie() {
                                     <section>
                                         <h2>{selectedMovie.title}</h2>
                                         <p>{selectedMovie.year} | {selectedMovie.genre} | {selectedMovie.rating} | {selectedMovie.language}</p>
-                                        <p>{selectedMovie.description}</p>
+                                        <p>{selectedMovie.description}</p>        
+                                        <button
+                                            onClick={handleOpenTrailer}
+                                            className={styles.buttonTrailer}
+                                        >
+                                            <Image src={PlayIcon} alt="Play Icon" width={20} height={20} />
+                                            <span>Trailer Film</span>
+                                        </button>
+                                        {isTrailerOpen && (
+                                            <>
+                                                <div className={styles.divPopupTrailer} onClick={handleCloseTrailer} />
+                                                <iframe 
+                                                    src={selectedMovie.trailer.replace("watch?v=", "embed/")} 
+                                                    frameBorder="0" 
+                                                    width="1000" 
+                                                    height="600" 
+                                                    title={`Trailer ${selectedMovie.title}`}
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    className={styles.trailerFilm}
+                                                ></iframe>
+                                            </>
+                                        )}
                                         <hr />
                                         <table>
                                             <tbody>
