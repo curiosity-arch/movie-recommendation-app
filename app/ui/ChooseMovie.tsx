@@ -68,7 +68,7 @@ export default function ChooseMovie() {
                 {histories.length > 0 && (
                     <div className={styles.histories_container}>
                         <div className={styles.histories_caption}>
-                            <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                            <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} className={styles.suggestionIcon}/>
                             <span>Pilihan Film Kamu Sebelumnya</span>
                         </div>
                         <div className={styles.histories_items}>
@@ -77,7 +77,7 @@ export default function ChooseMovie() {
                                     key={item.id}
                                     className={styles.histories_item}
                                 >
-                                    <Image src={item.poster} alt={item.movie_title} width={110} height={150}/>
+                                    <Image src={item.poster} alt={item.movie_title} width={110} height={150} className={styles.historiesItemPoster}/>
                                     <p>{item.movie_title}</p>
                                 </div>
                             ))}
@@ -88,7 +88,7 @@ export default function ChooseMovie() {
             <div id="film" className={styles.filter_container}>
                 <h2>Temukan Film Favoritmu <Image src={FilmIcon} alt="Film Icon" width={20} height={20} /></h2>
                 <div className={styles.suggestion}>
-                    <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                    <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} className={styles.suggestionIcon}/>
                     <span>Pilih film untuk mendapatkan rekomendasi !</span>
                 </div>
 

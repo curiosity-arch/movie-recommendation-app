@@ -6,7 +6,7 @@ export default function LoginPage() {
     return (
         <div className={styles.form}>
             <LoginForm />
-            <hr />
+            <hr className={styles.hr}/>
             <CreateForm />
         </div>
     );

@@ -74,6 +74,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: baseline;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -231,11 +232,28 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    gap: 100px;
+    gap: 200px;
 }
 
 .aboutSection {
     text-align: start;
+}
+
+.aboutBar {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.itemAboutBar {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.itemAboutBar:hover {
+    text-shadow: 1px 1px 10px #ffffff;
 }
 
 .histories_container {
@@ -251,6 +269,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 20px;
 
     overflow-x: scroll;
     scrollbar-width: none;
@@ -316,6 +335,106 @@
     border-color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
+    .home {
+        padding: 5px;
+        max-width: 400px;
+    }
     
+    .section {
+        padding: 10px;
+    }
+
+    /* Section 1 People and Quotes*/
+    .image {
+        width: 90px;
+        height: 70px;
+    }
+
+    .quote {
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    /* Section 2.1 Histories */
+    .histories_container {
+        max-width: 380px;
+        margin-bottom: 5px;
+    }
+
+    .suggestionIcon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .histories_caption {
+        font-size: 14px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .histories_item {
+        font-size: 15px;
+        text-align: center;
+        width: max-content;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .historiesItemPoster {
+        width: 80px;
+        height: 100px;
+    }
+
+    /* Session 2.2 Filter Genre dan Bahasa */
+    .filter_container {
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    .genresButton, .languagesButton {
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .genreButton, .languageButton {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    /* Session 2.3 Daftar Film */
+    .filmSection {
+        gap: 10px;
+    }
+
+    .film {
+        width: 100px;
+        height: 280px;
+    }
+
+    .imageMovies {
+        width: 90px;
+        height: 130px;
+    }
+
+    /* Section 3 About*/
+    .aboutRow {
+        gap: 60px;
+    }
+
+    .aboutSection {
+        font-size: 14px;
+        text-align: justify;
+        width: 150px;
+    }
+
+    .aboutBar {
+        flex-direction: column;
+        gap: 30px;
+    }
 }

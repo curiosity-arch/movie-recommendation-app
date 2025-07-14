@@ -1,14 +1,9 @@
-import { Metadata } from "next";
 import Image from "next/image";
+import { OnAboutBar } from "@/app/ui/nav-links";
 import ChooseMovie from "../ui/ChooseMovie";
-import { OnTopBar } from "@/app/ui/nav-links";
+import styles from "@/public/styles/layoutHome.module.css";
 import FedericoFellini from "@/public/images/federico_fellini.jpg";
 import SergeiEinstein from "@/public/images/sergei_einstein.jpeg";
-import styles from "@/public/styles/layoutHome.module.css";
-
-export const metadata: Metadata = {
-    title: 'Sistem Rekomendasi Film',
-}
 
 export default function HomePage() {
     return (
@@ -63,7 +58,7 @@ export default function HomePage() {
                             </section>
                         </div>
                         <div>
-                            <p><OnTopBar /></p>
+                            <OnAboutBar />
                         </div>
                     </div>
                     <p>Sistem Rekomendasi Film &copy; 2025 Fahril Ilham Pangestu</p>
