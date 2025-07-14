@@ -82,7 +82,6 @@
 .filmRecommendSection {
     display: flex;
     flex-direction: row;
-    justify-content: start;
     gap: 10px;
 }
 
@@ -210,7 +209,6 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: start;
     gap: 50px;
 }
 

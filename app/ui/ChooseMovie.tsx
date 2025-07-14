@@ -77,7 +77,7 @@ export default function ChooseMovie() {
                                     key={item.id}
                                     className={styles.histories_item}
                                 >
-                                    <Image src={item.poster} alt={item.movie_title} width={110} height={150} className={styles.historiesItemPoster}/>
+                                    <Image src={item.poster} alt={item.movie_title} width={110} height={150} priority className={styles.historiesItemPoster}/>
                                     <p>{item.movie_title}</p>
                                 </div>
                             ))}
