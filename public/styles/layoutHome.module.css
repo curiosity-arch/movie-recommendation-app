@@ -420,6 +420,62 @@
         height: 130px;
     }
 
+    /* Section 2.4 Popup Hasil Rekomendasi */
+    .divPopupContent {
+        width: 360px;
+        height: 770px;
+        top: 395px;
+        left: 200px;
+        font-size: 14px;
+    }
+
+    .closeButton {
+        right: 40px;
+        top: 10px;
+    }
+
+    .selectedFilm {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .popupImageFilm {
+        text-align: center;
+    }
+
+    .selectedImageFilm, .imageMovies {
+        width: 90px;
+        height: 130px;
+    }
+
+    .letterFont14px {
+        font-size: 14px;
+    }
+
+    .suggestionRecommendation {
+        margin: 10px 0px;
+    }
+
+    .overflowRecommendation {
+        width: 360px;
+        overflow-x: none;
+    }
+
+    .filmRecommendSection {
+        gap: 30px;
+    }
+
+    .movieCard {
+        width: 400px;
+        font-size: 11px;
+    }
+
+    /* Section 2.5 Trailer Film */
+    .trailerFilm {
+        width: 380px;
+        height: 200px;
+    }
+
     /* Section 3 About*/
     .aboutRow {
         gap: 60px;

@@ -178,7 +178,7 @@ export default function ChooseMovie() {
                             </button>
                             <div className={styles.divPopupContent}>
                                 <div className={styles.selectedFilm}>
-                                    <section>
+                                    <section className={styles.popupImageFilm}>
                                         <Image
                                             src={selectedMovie.poster}
                                             alt={selectedMovie.title}
@@ -188,7 +188,7 @@ export default function ChooseMovie() {
                                         />
                                     </section>
                                     <section>
-                                        <h2>{selectedMovie.title}</h2>
+                                        <h2 className={styles.letterFont14px}>{selectedMovie.title}</h2>
                                         <p>{selectedMovie.year} | {selectedMovie.genre} | {selectedMovie.rating} | {selectedMovie.language}</p>
                                         <p>{selectedMovie.description}</p>        
                                         <button
@@ -230,15 +230,17 @@ export default function ChooseMovie() {
                                         </table>
                                     </section>
                                 </div>
-                                <h2>Hasil rekomendasi untukmu:</h2>
-                                <div className={styles.suggestion}>
-                                    <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
-                                    <span>
-                                        Rekomendasi berdasarkan: <span className={styles.selectedMovie}>{selectedMovie.title}</span>
-                                    </span>
-                                </div>
-                                <div className={styles.overflowRecommendation}>
-                                    <RecommendationSection selectedMovie={selectedMovie} />
+                                <div className={styles.letterFont14px}>
+                                    <h2 className={styles.letterFont14px}>Hasil rekomendasi untukmu:</h2>
+                                    <div className={`${styles.suggestion} ${styles.suggestionRecommendation}`}>
+                                        <Image src={SuggestionIcon} alt="Suggestion Icon" width={20} height={20} />
+                                        <span>
+                                            Rekomendasi berdasarkan: <span className={styles.selectedMovie}>{selectedMovie.title}</span>
+                                        </span>
+                                    </div>
+                                    <div className={styles.overflowRecommendation}>
+                                        <RecommendationSection selectedMovie={selectedMovie} />
+                                    </div>
                                 </div>
                             </div>
                         </>
