@@ -210,6 +210,7 @@ export default function ChooseMovie() {
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowFullScreen
                                                     className={styles.trailerFilm}
+                                                    loading="lazy"
                                                 ></iframe>
                                             </>
                                         )}
