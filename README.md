@@ -5,11 +5,13 @@ Aplikasi ini adalah sistem rekomendasi film berbasis web yang memanfaatkan algor
 
 Aplikasi dibangun menggunakan HTML, CSS, JavaScript, React, Next.js, dan dideploy menggunakan Vercel.
 
+
 ### 🚀 Demo Aplikasi
 
 Silakan akses aplikasi melalui link berikut:
 
-👉 (Klik untuk melihat aplikasi) [https://movie-recommendation-app-git-main-curiosity-archs-projects.vercel.app/]
+👉 [Klik untuk melihat aplikasi](https://movie-recommendation-app-git-main-curiosity-archs-projects.vercel.app/)
+
 
 ### 🛠️ Teknologi yang Digunakan
 **Frontend**
