@@ -16,14 +16,14 @@ Silakan akses aplikasi melalui link berikut:
 ---
 
 ### 🛠️ Teknologi yang Digunakan
-**Frontend**
+**Frontend:**
 - React.js
 - Next.js
 - JavaScript
 - HTML & CSS
 
-**Algoritma**
+**Algoritma:**
 - K-Means Clustering
 
-**Deployment**
+**Deployment:**
 - Vercel
